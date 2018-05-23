@@ -5,7 +5,7 @@ MAINTAINER Marc mail@prueba.com
 RUN apt-get update -y && apt-get upgrade -y
 
 # Instalamos PHP y la libreria que hace que funcione con apache
-RUN apt-get install php libapache2-mod-php
+RUN apt-get install php libapache2-mod-php -y
 
 # Incluimos la configuracion de nuestro "site" dentro de el directorio de Apache
 ADD ./config/docker.conf /etc/apache2/sites-available/docker.conf
