@@ -8,7 +8,7 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install php libapache2-mod-php
 
 # Incluimos la configuracion de nuestro "site" dentro de el directorio de Apache
-ADD ./config/docker.conf
+ADD ./config/docker.conf /etc/apache2/sites-available/docker.conf
 RUN a2ensite docker
 
 EXPOSE 80
