@@ -17,4 +17,4 @@ EXPOSE 80
 ADD ./scripts/info.php /var/www/html/info.php
 ADD ./scripts/start.sh /start.sh
 RUN chmod 0755 /start.sh
-CMD ["bash", "/start.sh"]
+CMD ["bash", "/etc/init.d/apache2 start", "-D"]
