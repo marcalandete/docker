@@ -11,7 +11,7 @@ RUN apt-get install php libapache2-mod-php -y
 ADD ./config/docker.conf /etc/apache2/sites-available/docker.conf
 RUN a2ensite docker
 RUN a2dissite 000-default
-RUN service apache2 restart
+
 
 EXPOSE 80
 ADD ./scripts/info.php /var/www/html/info.php
