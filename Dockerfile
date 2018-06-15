@@ -8,13 +8,13 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install php libapache2-mod-php -y
 
 # Incluimos la configuracion de nuestro "site" dentro de el directorio de Apache
-ADD ./config/docker.conf /etc/apache2/sites-available/docker.conf
-RUN a2ensite docker
-RUN a2dissite 000-default
+ADD ./config/docker.conf /etc/apache2/sites-available/000-default.conf
+
 
 
 EXPOSE 80
 ADD ./scripts/info.php /var/www/html/info.php
 ADD ./scripts/start.sh /start.sh
 RUN chmod 0755 /start.sh
-CMD ["bash", "/etc/init.d/apache2 start", "-D"]
+
+CMD /usr/sbin/apache2ctl -D FOREGROUND
