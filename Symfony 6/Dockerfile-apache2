@@ -1,0 +1,2 @@
+FROM httpd:2.4
+COPY ./build/apache2/my-httpd.conf /usr/local/apache2/conf/httpd.conf
